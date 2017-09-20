@@ -19,8 +19,37 @@ func dialogError(question: String, text: String) {
 
 class ViewController: NSViewController {
     
-    let plaintextURL = URL(fileURLWithPath: "/Users/azarovalex/Desktop/Rail Fence/plaintext.txt")
-    let ciphertextURL = URL(fileURLWithPath: "/Users/azarovalex/Desktop/Rail Fence/ciphertext.txt")
+    var path: String = ""
+    
+    func browseFile(sender: AnyObject) -> String {
+        
+        let dialog = NSOpenPanel();
+        
+        dialog.title                   = "Choose a .txt file";
+        dialog.showsResizeIndicator    = true;
+        dialog.showsHiddenFiles        = false;
+        dialog.canChooseDirectories    = true;
+        dialog.canCreateDirectories    = true;
+        dialog.allowsMultipleSelection = false;
+        dialog.allowedFileTypes        = ["txt"];
+        
+        if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+            let result = dialog.url // Pathname of the file
+            
+            if (result != nil) {
+                path = result!.path
+                return path
+            }
+        } else {
+            // User clicked on "Cancel"
+            return ""
+        }
+        
+        return ""
+    }
+    
+   
+    var fileURL  = URL(fileURLWithPath: "/Users/azarovalex/Desktop/Rail Fence/plaintext.txt")
     
     @IBOutlet weak var plaintextField: NSTextField!
     @IBOutlet weak var railfenceField: NSTextField!
@@ -42,18 +71,20 @@ class ViewController: NSViewController {
         keysizeLabel.stringValue = "Key: \(sizeofkey)"
     }
     @IBAction func loadText(_ sender: NSButton) {
+        fileURL = URL(fileURLWithPath: browseFile(sender: self))
+        
         switch sender.tag {
         case 1:
             do {
-                plaintextField.stringValue  = try String(contentsOf: plaintextURL)
+                plaintextField.stringValue  = try String(contentsOf: fileURL)
             } catch {
-                dialogError(question: "Failed reading from URL: \(plaintextURL)", text: "Error: " + error.localizedDescription)
+                dialogError(question: "Failed reading from URL: \(fileURL)", text: "Error: " + error.localizedDescription)
             }
         case 2:
             do {
-                ciphertextField.stringValue = try String(contentsOf: ciphertextURL)
+                ciphertextField.stringValue = try String(contentsOf: fileURL)
             } catch {
-                dialogError(question: "Failed reading from URL: \(ciphertextURL)", text: "Error: " + error.localizedDescription)
+                dialogError(question: "Failed reading from URL: \(fileURL)", text: "Error: " + error.localizedDescription)
             }
         default:
             break
@@ -62,18 +93,21 @@ class ViewController: NSViewController {
         
     }
     @IBAction func storeText(_ sender: NSButton) {
+        
+        fileURL = URL(fileURLWithPath: browseFile(sender: self))
+        
         switch sender.tag {
         case 1:
             do {
-                try plaintextField.stringValue.write(to: plaintextURL, atomically: true, encoding: .utf8)
+                try plaintextField.stringValue.write(to: fileURL, atomically: true, encoding: .utf8)
             } catch {
-                dialogError(question: "Failed writing to URL \(plaintextURL)", text: "Error: " + error.localizedDescription)
+                dialogError(question: "Failed writing to URL \(fileURL)", text: "Error: " + error.localizedDescription)
             }
         case 2:
             do {
-                try ciphertextField.stringValue.write(to: ciphertextURL, atomically: true, encoding: .utf8)
+                try ciphertextField.stringValue.write(to: fileURL, atomically: true, encoding: .utf8)
             } catch {
-                dialogError(question: "Failed writing to URL \(ciphertextURL)", text: "Error: " + error.localizedDescription)
+                dialogError(question: "Failed writing to URL \(fileURL)", text: "Error: " + error.localizedDescription)
             }
         default:
             break
@@ -120,4 +154,5 @@ class ViewController: NSViewController {
         
     }
 }
+
 

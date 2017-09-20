@@ -10,9 +10,12 @@ import Cocoa
 
 class Column: NSViewController {
     
-    @IBAction func btnPressed(_ sender: Any) {
-        
-    }
+    @IBOutlet weak var keywordField: NSTextField!
+    @IBOutlet weak var plaintextField: NSTextField!
+    @IBOutlet weak var ciphertextField: NSTextField!
+    @IBOutlet weak var columnsField: NSTextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
