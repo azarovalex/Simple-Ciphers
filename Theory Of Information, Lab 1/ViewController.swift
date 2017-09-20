@@ -8,15 +8,6 @@
 
 import Cocoa
 
-func dialogError(question: String, text: String) {
-    let alert = NSAlert()
-    alert.messageText = question
-    alert.informativeText = text
-    alert.alertStyle = .critical
-    alert.addButton(withTitle: "OK")
-    alert.runModal()
-}
-
 class ViewController: NSViewController {
     
     var path: String = ""
@@ -65,6 +56,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.window?.styleMask.remove(NSWindow.StyleMask.resizable)
     }
     @IBAction func sliderChanged(_ sender: NSSlider) {
         sizeofkey = sender.integerValue
@@ -123,8 +115,6 @@ class ViewController: NSViewController {
             dialogError(question: "Your plaintext is an empty string!", text: "Error: Nothing to encipher.")
             return
         }
-        
-        // TODO: Save whitespaces positions
         
         plaintext = String(cString: SaveSpecialSymbols(plaintext))
         

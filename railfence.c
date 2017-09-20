@@ -10,9 +10,6 @@
 #include <string.h>
 #include <ctype.h>
 
-// DEBUG
-#include <stdio.h>
-
 typedef struct specialSymbols {
     char symbol;
     int pos;
