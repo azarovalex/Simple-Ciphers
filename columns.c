@@ -13,6 +13,7 @@ const char *ColumnEncipher(const char *plaintext, const char *keyword) {
     int keywordLen = (int) strlen(keyword);
     
     int arr[keywordLen];
+    int i = 0;
     
     
     return "Hello, World!";
