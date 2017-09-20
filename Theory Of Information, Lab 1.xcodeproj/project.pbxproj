@@ -1,0 +1,337 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DF792F3B1F6C677900221868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF792F3A1F6C677900221868 /* AppDelegate.swift */; };
+		DF792F3D1F6C677900221868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF792F3C1F6C677900221868 /* ViewController.swift */; };
+		DF792F3F1F6C677900221868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF792F3E1F6C677900221868 /* Assets.xcassets */; };
+		DF792F421F6C677900221868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF792F401F6C677900221868 /* Main.storyboard */; };
+		DFAA109D1F72DE6F00C3479D /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAA109C1F72DE6F00C3479D /* Column.swift */; };
+		DFD0BB031F6DE27700417CB0 /* railfence.c in Sources */ = {isa = PBXBuildFile; fileRef = DFD0BB011F6DE27700417CB0 /* railfence.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DF792F371F6C677900221868 /* Theory Of Information, Lab 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Theory Of Information, Lab 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF792F3A1F6C677900221868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DF792F3C1F6C677900221868 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DF792F3E1F6C677900221868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DF792F411F6C677900221868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DF792F431F6C677900221868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF792F441F6C677900221868 /* Theory_Of_Information__Lab_1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Theory_Of_Information__Lab_1.entitlements; sourceTree = "<group>"; };
+		DFAA109C1F72DE6F00C3479D /* Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
+		DFD0BB001F6DE27700417CB0 /* Theory Of Information, Lab 1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Theory Of Information, Lab 1-Bridging-Header.h"; sourceTree = "<group>"; };
+		DFD0BB011F6DE27700417CB0 /* railfence.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = railfence.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DF792F341F6C677900221868 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DF792F2E1F6C677900221868 = {
+			isa = PBXGroup;
+			children = (
+				DFD0BB011F6DE27700417CB0 /* railfence.c */,
+				DF792F391F6C677900221868 /* Theory Of Information, Lab 1 */,
+				DF792F381F6C677900221868 /* Products */,
+				DFD0BB001F6DE27700417CB0 /* Theory Of Information, Lab 1-Bridging-Header.h */,
+			);
+			sourceTree = "<group>";
+		};
+		DF792F381F6C677900221868 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF792F371F6C677900221868 /* Theory Of Information, Lab 1.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF792F391F6C677900221868 /* Theory Of Information, Lab 1 */ = {
+			isa = PBXGroup;
+			children = (
+				DF792F3A1F6C677900221868 /* AppDelegate.swift */,
+				DF792F3C1F6C677900221868 /* ViewController.swift */,
+				DF792F3E1F6C677900221868 /* Assets.xcassets */,
+				DF792F401F6C677900221868 /* Main.storyboard */,
+				DF792F431F6C677900221868 /* Info.plist */,
+				DF792F441F6C677900221868 /* Theory_Of_Information__Lab_1.entitlements */,
+				DFAA109C1F72DE6F00C3479D /* Column.swift */,
+			);
+			path = "Theory Of Information, Lab 1";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DF792F361F6C677900221868 /* Theory Of Information, Lab 1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF792F471F6C677900221868 /* Build configuration list for PBXNativeTarget "Theory Of Information, Lab 1" */;
+			buildPhases = (
+				DF792F331F6C677900221868 /* Sources */,
+				DF792F341F6C677900221868 /* Frameworks */,
+				DF792F351F6C677900221868 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Theory Of Information, Lab 1";
+			productName = "Theory Of Information, Lab 1";
+			productReference = DF792F371F6C677900221868 /* Theory Of Information, Lab 1.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DF792F2F1F6C677900221868 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Alex Azarov";
+				TargetAttributes = {
+					DF792F361F6C677900221868 = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = DF792F321F6C677900221868 /* Build configuration list for PBXProject "Theory Of Information, Lab 1" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DF792F2E1F6C677900221868;
+			productRefGroup = DF792F381F6C677900221868 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DF792F361F6C677900221868 /* Theory Of Information, Lab 1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DF792F351F6C677900221868 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF792F3F1F6C677900221868 /* Assets.xcassets in Resources */,
+				DF792F421F6C677900221868 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DF792F331F6C677900221868 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF792F3D1F6C677900221868 /* ViewController.swift in Sources */,
+				DFAA109D1F72DE6F00C3479D /* Column.swift in Sources */,
+				DFD0BB031F6DE27700417CB0 /* railfence.c in Sources */,
+				DF792F3B1F6C677900221868 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DF792F401F6C677900221868 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DF792F411F6C677900221868 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DF792F451F6C677900221868 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DF792F461F6C677900221868 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		DF792F481F6C677900221868 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CLALR9F4Q5;
+				INFOPLIST_FILE = "Theory Of Information, Lab 1/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "by.azarov.Theory-Of-Information--Lab-1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Theory Of Information, Lab 1-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		DF792F491F6C677900221868 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CLALR9F4Q5;
+				INFOPLIST_FILE = "Theory Of Information, Lab 1/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "by.azarov.Theory-Of-Information--Lab-1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Theory Of Information, Lab 1-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DF792F321F6C677900221868 /* Build configuration list for PBXProject "Theory Of Information, Lab 1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF792F451F6C677900221868 /* Debug */,
+				DF792F461F6C677900221868 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF792F471F6C677900221868 /* Build configuration list for PBXNativeTarget "Theory Of Information, Lab 1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF792F481F6C677900221868 /* Debug */,
+				DF792F491F6C677900221868 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DF792F2F1F6C677900221868 /* Project object */;
+}
