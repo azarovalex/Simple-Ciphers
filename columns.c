@@ -77,27 +77,30 @@ const char *ColumnEncipher(const char *plaintext, const char *keyword) {
     
     index = 0;
     for (int i = 0; i < keywordLen; i++) {
-        index = i + 2;
         columns[index++] = keyword[i];
         columns[index++] = ' ';
     }
-//    index = keywordLen * 2;
+
     columns[index - 1] = '\n';
     
     for (int i = 0; i < keywordLen; i++) {
-        columns[index + i * 2] = '0' + arr[i];
-        columns[index + i * 2 + 1] = ' ';
+        columns[index++] = '0' + arr[i];
+        columns[index++] = ' ';
+    }
+    columns[index++] = '\n';
+    
+    for (int j = 0; j < sizeX; j++) {
+        for (int i = 0; i < keywordLen; i++) {
+            columns[index++] = matrix[j][i];
+            columns[index++] = ' ';
+        }
+        columns[index++] = '\n';
     }
     
-
-    
-
+    columns[index] = '\0';
 
     return ciphertext;
-    
-    
 }
-
 
 const char *GetColumns() {
     return columns;
