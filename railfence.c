@@ -121,7 +121,7 @@ const char *ReturnSpecialSymbols(const char *text) {
     int textSize = 0;
     while (text[textSize]) textSize++;
     
-    char *newText = malloc((size_t) (arrSize + textSize + 1));
+    char *newText = malloc((size_t) (arrSize + textSize));
     for (int i = 0, arrPos = 0, textIndex = 0; i < arrSize + textSize; i++) {
         if (arr[arrPos].pos == i) {
             newText[i] = arr[arrPos++].symbol;
@@ -129,6 +129,7 @@ const char *ReturnSpecialSymbols(const char *text) {
             newText[i] = text[textIndex++];
         }
     }
+    newText[arrSize + textSize] = '\0';
     
     return newText;
 }

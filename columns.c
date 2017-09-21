@@ -8,9 +8,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <printf.h>
+#include <ctype.h>
 
 static int arr[100];
-static char collumns[5000];
+static char columns[5000];
 
 const char *ColumnEncipher(const char *plaintext, const char *keyword) {
     int keywordLen = (int) strlen(keyword);
@@ -22,10 +23,12 @@ const char *ColumnEncipher(const char *plaintext, const char *keyword) {
     
     char matrix[sizeX][keywordLen];
     
+    int flag = 0;
     for (int i = 0, k = 0; i < sizeX; i++) {
         for (int j = 0; j < keywordLen; j++) {
-            if (plaintext[k] == '\0') {
+            if (plaintext[k] == '\0' || flag) {
                 matrix[i][j] = '_';
+                flag = 1;
             } else {
                 matrix[i][j] = plaintext[k];
             }
@@ -53,7 +56,7 @@ const char *ColumnEncipher(const char *plaintext, const char *keyword) {
         arr[pos] = i;
     }
     
-    char *ciphertext = malloc(plaintextLen + 1);
+    char *ciphertext = malloc(plaintextLen + 2);
     int index = 0;
     
     for (int i = 0; i < keywordLen; i++) {
@@ -65,14 +68,37 @@ const char *ColumnEncipher(const char *plaintext, const char *keyword) {
         }
         for (int k = 0; k < sizeX; k++) {
             if (matrix[k][j] != '_') {
-                ciphertext[index++] = matrix[k][j];
+                char c = matrix[k][j];
+                ciphertext[index++] = c;
             }
         }
     }
-    ciphertext[index] = '\0';
+    ciphertext[plaintextLen] = '\0';
+    
+    index = 0;
+    for (int i = 0; i < keywordLen; i++) {
+        index = i + 2;
+        columns[index++] = keyword[i];
+        columns[index++] = ' ';
+    }
+//    index = keywordLen * 2;
+    columns[index - 1] = '\n';
+    
+    for (int i = 0; i < keywordLen; i++) {
+        columns[index + i * 2] = '0' + arr[i];
+        columns[index + i * 2 + 1] = ' ';
+    }
+    
+
+    
 
 
     return ciphertext;
     
     
+}
+
+
+const char *GetColumns() {
+    return columns;
 }

@@ -128,10 +128,12 @@ class Column: NSViewController {
         
         ciphertext = String(cString: ColumnEncipher(plaintext, keyword))
         
+        columns = String(cString: GetColumns())
+        columnsField.stringValue = columns
+        
         ciphertext = String(cString: ReturnSpecialSymbols(ciphertext))
         ciphertextField.stringValue = ciphertext
     }
-    
     
     
     
