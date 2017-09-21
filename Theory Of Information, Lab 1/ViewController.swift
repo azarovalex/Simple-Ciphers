@@ -8,62 +8,61 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+var path: String = ""
+
+func browseFile() -> String {
     
-    var path: String = ""
+    let dialog = NSOpenPanel();
     
-    func browseFile(sender: AnyObject) -> String {
+    dialog.title                   = "Choose a .txt file";
+    dialog.showsResizeIndicator    = true;
+    dialog.showsHiddenFiles        = false;
+    dialog.canChooseDirectories    = true;
+    dialog.canCreateDirectories    = true;
+    dialog.allowsMultipleSelection = false;
+    dialog.allowedFileTypes        = ["txt"];
+    
+    if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+        let result = dialog.url // Pathname of the file
         
-        let dialog = NSOpenPanel();
-        
-        dialog.title                   = "Choose a .txt file";
-        dialog.showsResizeIndicator    = true;
-        dialog.showsHiddenFiles        = false;
-        dialog.canChooseDirectories    = true;
-        dialog.canCreateDirectories    = true;
-        dialog.allowsMultipleSelection = false;
-        dialog.allowedFileTypes        = ["txt"];
-        
-        if (dialog.runModal() == NSApplication.ModalResponse.OK) {
-            let result = dialog.url // Pathname of the file
-            
-            if (result != nil) {
-                path = result!.path
-                return path
-            }
-        } else {
-            // User clicked on "Cancel"
-            return ""
+        if (result != nil) {
+            path = result!.path
+            return path
         }
-        
+    } else {
+        // User clicked on "Cancel"
         return ""
     }
     
-   
-    var fileURL  = URL(fileURLWithPath: "/Users/azarovalex/Desktop/Rail Fence/plaintext.txt")
+    return ""
+}
+
+class ViewController: NSViewController {
+    
+    var fileURL  = URL(fileURLWithPath: "/")
     
     @IBOutlet weak var plaintextField: NSTextField!
     @IBOutlet weak var railfenceField: NSTextField!
     @IBOutlet weak var ciphertextField: NSTextField!
     @IBOutlet weak var keysizeLabel: NSTextField!
+    @IBOutlet weak var keyField: NSTextField!
+    @IBOutlet weak var symbolsCheckbox: NSButton!
     
     
     var ciphertext = ""
     var plaintext = ""
     var railfence = ""
     
-    var sizeofkey = 4
+    var sizeofkey = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.window?.styleMask.remove(NSWindow.StyleMask.resizable)
+        symbolsCheckbox.state = .off
     }
-    @IBAction func sliderChanged(_ sender: NSSlider) {
-        sizeofkey = sender.integerValue
-        keysizeLabel.stringValue = "Key: \(sizeofkey)"
-    }
+    
+    // FINISHED
     @IBAction func loadText(_ sender: NSButton) {
-        fileURL = URL(fileURLWithPath: browseFile(sender: self))
+        fileURL = URL(fileURLWithPath: browseFile())
         
         switch sender.tag {
         case 1:
@@ -85,8 +84,7 @@ class ViewController: NSViewController {
         
     }
     @IBAction func storeText(_ sender: NSButton) {
-        
-        fileURL = URL(fileURLWithPath: browseFile(sender: self))
+        fileURL = URL(fileURLWithPath: browseFile())
         
         switch sender.tag {
         case 1:
@@ -106,24 +104,46 @@ class ViewController: NSViewController {
         }
     }
     
+    // FINISHED
     @IBAction func encodeBtnPressed(_ sender: Any) {
-        // Remain only letters in the plaintext
         plaintext = plaintextField.stringValue
-        
-        // Are there at least one symbol in the plaintext?
         guard plaintext != "" else {
             dialogError(question: "Your plaintext is an empty string!", text: "Error: Nothing to encipher.")
             return
         }
         
-        plaintext = String(cString: SaveSpecialSymbols(plaintext))
+        // Get sizeofkey
+        var keyStr = keyField.stringValue
+        keyStr = keyStr.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        keyField.stringValue = keyStr
+        if (keyStr == "") {
+            dialogError(question: "Key field is empty!", text: "Error: Can not encipher without a key.")
+            return
+        }
+        sizeofkey = Int(keyStr)!
+        if (sizeofkey == 0) {
+            dialogError(question: "Not a valid key!", text: "Error: Can not encipher with zero hight.")
+            return
+        }
+        
+        
+        // Save special characters
+        if symbolsCheckbox.state == .on {
+            plaintext = String(cString: SaveSpecialSymbols(plaintext))
+        } else {
+            plaintext = plaintext.components(separatedBy: CharacterSet.letters.inverted).joined()
+            plaintextField.stringValue = plaintext
+        }
         
         // Draw the rail fence
         railfence = String(cString: MakeRailFence(plaintext, Int32(plaintext.count), Int32(sizeofkey)))
         railfenceField.stringValue = railfence
         
+        // Load special characters and display ciphertext
         ciphertext = String(cString: Encipher(railfence, Int32(plaintext.count)))
-        ciphertext = String(cString: ReturnSpecialSymbols(ciphertext))
+        if symbolsCheckbox.state == .on {
+            ciphertext = String(cString: ReturnSpecialSymbols(ciphertext))
+        }
         ciphertextField.stringValue = ciphertext
     }
     
@@ -134,14 +154,34 @@ class ViewController: NSViewController {
             return
         }
         
-        let ptr = SaveSpecialSymbols(ciphertext)
-        ciphertext = String(cString: ptr!)
-        free(UnsafeMutableRawPointer.init(mutating: ptr))
+        // Get sizeofey
+        var keyStr = keyField.stringValue
+        keyStr = keyStr.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        keyField.stringValue = keyStr
+        if (keyStr == "") {
+            dialogError(question: "Key field is empty!", text: "Error: Can not decipher without a key.")
+            return
+        }
+        sizeofkey = Int(keyStr)!
+        if (sizeofkey == 0) {
+            dialogError(question: "Not a valid key!", text: "Error: Can not decipher with zero hight.")
+            return
+        }
+        
+        if symbolsCheckbox.state == .on {
+            ciphertext = String(cString: SaveSpecialSymbols(ciphertext))
+        } else {
+            ciphertext = ciphertext.components(separatedBy: CharacterSet.letters.inverted).joined()
+            ciphertextField.stringValue = ciphertext
+        }
         
         plaintext = String(cString: Decipher(ciphertext, Int32(sizeofkey)));
-        plaintext = String(cString: ReturnSpecialSymbols(plaintext))
+        if symbolsCheckbox.state == .on {
+            plaintext = String(cString: ReturnSpecialSymbols(plaintext))
+        }
         plaintextField.stringValue = plaintext
-        
+        railfence = String(cString: MakeRailFence(plaintext, Int32(plaintext.count), Int32(sizeofkey)))
+        railfenceField.stringValue = railfence
     }
 }
 
