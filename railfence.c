@@ -32,7 +32,8 @@ const char *MakeRailFence(const char *plaintext, int numCols, int numRows) {
     int direction = 1;
     for (int i = 0, row = 0; i < numCols; i++) {
         arr[row][i] = plaintext[i];
-        row += direction;
+        if (numRows != 1)   // Here is a comment
+            row += direction;
         if (row == numRows - 1 || row == 0) {
             direction *= -1;
         }
