@@ -12,3 +12,4 @@ const char *ReturnSpecialSymbols(const char* text);
 // Columns cipher
 const char *ColumnEncipher(const char *plaintext, const char *keyword);
 const char *GetColumns();
+const char *ColumnDecipher(const char *ciphertext, const char *keyword);

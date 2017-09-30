@@ -960,6 +960,9 @@ VGhlb3J5IG9mIEluZm9ybWF0aW9uLCBMYWIuIFdvcmsgMSAf4oCUIEF6YXJvdiBBbGV4YW5kZXI
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="decodeBtnPressed:" target="2zD-uZ-Pks" id="jya-L9-wzi"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FDf-yf-P9x">
                                 <rect key="frame" x="124" y="450" width="57" height="17"/>

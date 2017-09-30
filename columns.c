@@ -106,3 +106,79 @@ const char *ColumnEncipher(const char *plaintext, const char *keyword) {
 const char *GetColumns() {
     return columns;
 }
+
+const char *ColumnDecipher(const char *ciphertext, const char *keyword) {
+    int keywordLen = (int) strlen(keyword);
+    if (keywordLen == 1)
+        return ciphertext;
+
+    int ciphertextLen = (int) strlen(ciphertext);
+    int sizeX = ciphertextLen / keywordLen;
+    if (ciphertextLen % keywordLen)
+        sizeX += 1;
+    
+    char matrix[sizeX][keywordLen];
+    
+    char temp;
+    int  pos;
+    
+    for (int i = 0; i < keywordLen; i++)
+        arr[i] = -1;
+    
+    for (int i = 0; i < keywordLen; i++) {
+        temp = '~';
+        pos = 0;
+        
+        for (int j = 0; j < keywordLen; j++) {
+            if (temp > keyword[j] && arr[j] == -1) {
+                temp = keyword[j];
+                pos = j;
+            }
+        }
+        arr[pos] = i;
+    }
+    
+    int ciphertextIndex = 0;
+    for (int i = 0; i < sizeX; i++) {
+        for (int j = 0; j < keywordLen; j++) {
+            if (ciphertextIndex < ciphertextLen) {
+                matrix[i][j] = ciphertext[ciphertextIndex++];
+            } else {
+                matrix[i][j] = '_';
+            }
+        }
+    }
+    
+    int i = 0;
+    int arrIndex = 0;
+    ciphertextIndex = 0;
+    while (i < keywordLen) {
+        if (arr[arrIndex] == i) {
+            for (int j = 0; j < sizeX; j++) {
+                if (matrix[j][arrIndex] != '_') {
+                    matrix[j][arrIndex] = ciphertext[ciphertextIndex++];
+                } else {
+                    matrix[j][arrIndex] = '\0';
+                }
+            }
+            i++;
+            arrIndex = 0;
+        } else {
+            arrIndex++;
+        }
+    }
+
+//    for (int i = 0; i < sizeX; i++) {
+//        for (int j = 0; j < keywordLen; j++) {
+//            printf("%c ", matrix[i][j]);
+//        }
+//        putchar('\n');
+//    }
+    
+    
+    char *plaintext = malloc(ciphertextLen + 1);
+    memcpy(plaintext, matrix, ciphertextLen);
+    plaintext[ciphertextLen + 1] = '\0';
+    
+    return plaintext;
+}

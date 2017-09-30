@@ -55,6 +55,9 @@ const char *Encipher(const char* railfence, int size) {
 }
 
 const char *Decipher(const char* ciphertext, int hight) {
+    if (hight == 1) {
+        return ciphertext;
+    }
     int lenght = 0;
     while (ciphertext[lenght]) lenght++;
     

@@ -135,6 +135,26 @@ class Column: NSViewController {
         ciphertextField.stringValue = ciphertext
     }
     
+    @IBAction func decodeBtnPressed(_ sender: Any) {
+        ciphertext = ciphertextField.stringValue
+        guard ciphertext != "" else {
+            dialogError(question: "Your ciphertext is an empy string!", text: "Error: Nothing to encipher.")
+            return
+        }
+        
+        keyword = keywordField.stringValue
+        guard keyword != "" else {
+            dialogError(question: "Your ciphertext is an empy string!", text: "Error: Nothing to encipher.")
+            return
+        }
+        ciphertext = ciphertext.components(separatedBy: CharacterSet.letters.inverted)
+            .joined()
+        plaintext = String(cString: ColumnDecipher(ciphertext, keyword))
+        plaintextField.stringValue = plaintext
+        ColumnEncipher(plaintext, keyword)
+        columns = String(cString: GetColumns())
+        columnsField.stringValue = columns
+    }
     
     
     
