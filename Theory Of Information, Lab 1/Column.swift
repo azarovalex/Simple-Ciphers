@@ -144,11 +144,10 @@ class Column: NSViewController {
         
         keyword = keywordField.stringValue
         guard keyword != "" else {
-            dialogError(question: "Your ciphertext is an empty string!", text: "Error: Nothing to encipher.")
+            dialogError(question: "Your keyword is an empty string!", text: "Error: Nothing to encipher.")
             return
         }
-        ciphertext = ciphertext.components(separatedBy: CharacterSet.letters.inverted)
-            .joined()
+        ciphertext = ciphertext.components(separatedBy: CharacterSet.letters.inverted).joined()
         plaintext = String(cString: ColumnDecipher(ciphertext, keyword))
         plaintextField.stringValue = plaintext
         ColumnEncipher(plaintext, keyword)
