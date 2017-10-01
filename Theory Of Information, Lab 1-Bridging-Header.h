@@ -13,3 +13,7 @@ const char *ReturnSpecialSymbols(const char* text);
 const char *ColumnEncipher(const char *plaintext, const char *keyword);
 const char *GetColumns();
 const char *ColumnDecipher(const char *ciphertext, const char *keyword);
+
+// Vigenere cipher
+const char *VigenereEncipher(const char *plaintext, const char *key);
+const char *VigenereDecipher(const char *ciphertext, const char *key);

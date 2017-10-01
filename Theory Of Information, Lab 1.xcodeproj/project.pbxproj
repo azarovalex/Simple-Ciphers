@@ -12,6 +12,9 @@
 		DF792F3F1F6C677900221868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF792F3E1F6C677900221868 /* Assets.xcassets */; };
 		DF792F421F6C677900221868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF792F401F6C677900221868 /* Main.storyboard */; };
 		DF7D65491F73119300F3D472 /* columns.c in Sources */ = {isa = PBXBuildFile; fileRef = DF7D65471F73119300F3D472 /* columns.c */; };
+		DF8E3A611F81561000E98503 /* vigenere.c in Sources */ = {isa = PBXBuildFile; fileRef = DF8E3A601F81561000E98503 /* vigenere.c */; };
+		DF8E3A631F8156FA00E98503 /* Vigenere.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8E3A621F8156FA00E98503 /* Vigenere.swift */; };
+		DF8E3A651F81750D00E98503 /* VigenereAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8E3A641F81750D00E98503 /* VigenereAlgorithm.swift */; };
 		DFAA109D1F72DE6F00C3479D /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAA109C1F72DE6F00C3479D /* Column.swift */; };
 		DFD0BB031F6DE27700417CB0 /* railfence.c in Sources */ = {isa = PBXBuildFile; fileRef = DFD0BB011F6DE27700417CB0 /* railfence.c */; };
 /* End PBXBuildFile section */
@@ -25,6 +28,9 @@
 		DF792F431F6C677900221868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF792F441F6C677900221868 /* Theory_Of_Information__Lab_1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Theory_Of_Information__Lab_1.entitlements; sourceTree = "<group>"; };
 		DF7D65471F73119300F3D472 /* columns.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = columns.c; sourceTree = "<group>"; };
+		DF8E3A601F81561000E98503 /* vigenere.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vigenere.c; sourceTree = "<group>"; };
+		DF8E3A621F8156FA00E98503 /* Vigenere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vigenere.swift; sourceTree = "<group>"; };
+		DF8E3A641F81750D00E98503 /* VigenereAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VigenereAlgorithm.swift; sourceTree = "<group>"; };
 		DFAA109C1F72DE6F00C3479D /* Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
 		DFD0BB001F6DE27700417CB0 /* Theory Of Information, Lab 1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Theory Of Information, Lab 1-Bridging-Header.h"; sourceTree = "<group>"; };
 		DFD0BB011F6DE27700417CB0 /* railfence.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = railfence.c; sourceTree = "<group>"; };
@@ -44,6 +50,7 @@
 		DF792F2E1F6C677900221868 = {
 			isa = PBXGroup;
 			children = (
+				DF8E3A601F81561000E98503 /* vigenere.c */,
 				DF7D65471F73119300F3D472 /* columns.c */,
 				DFD0BB011F6DE27700417CB0 /* railfence.c */,
 				DF792F391F6C677900221868 /* Theory Of Information, Lab 1 */,
@@ -70,6 +77,8 @@
 				DF792F431F6C677900221868 /* Info.plist */,
 				DF792F441F6C677900221868 /* Theory_Of_Information__Lab_1.entitlements */,
 				DFAA109C1F72DE6F00C3479D /* Column.swift */,
+				DF8E3A621F8156FA00E98503 /* Vigenere.swift */,
+				DF8E3A641F81750D00E98503 /* VigenereAlgorithm.swift */,
 			);
 			path = "Theory Of Information, Lab 1";
 			sourceTree = "<group>";
@@ -151,10 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF8E3A611F81561000E98503 /* vigenere.c in Sources */,
+				DF8E3A631F8156FA00E98503 /* Vigenere.swift in Sources */,
 				DF792F3D1F6C677900221868 /* ViewController.swift in Sources */,
 				DFAA109D1F72DE6F00C3479D /* Column.swift in Sources */,
 				DFD0BB031F6DE27700417CB0 /* railfence.c in Sources */,
 				DF7D65491F73119300F3D472 /* columns.c in Sources */,
+				DF8E3A651F81750D00E98503 /* VigenereAlgorithm.swift in Sources */,
 				DF792F3B1F6C677900221868 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
