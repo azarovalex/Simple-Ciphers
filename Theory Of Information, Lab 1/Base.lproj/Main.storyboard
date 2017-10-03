@@ -889,7 +889,7 @@ VGhlb3J5IG9mIEluZm9ybWF0aW9uLCBMYWIuIFdvcmsgMSAf4oCUIEF6YXJvdiBBbGV4YW5kZXI
         <!--Tab View Controller-->
         <scene sceneID="f5D-PT-dam">
             <objects>
-                <tabViewController selectedTabViewItemIndex="2" id="6CA-Sh-Iur" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" id="6CA-Sh-Iur" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="Rail Fence" id="oP2-dL-eTP"/>
                         <tabViewItem label="Colomn Method" id="2LE-a2-Iv6"/>

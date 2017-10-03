@@ -45,11 +45,13 @@ const char *MakeRailFence(const char *plaintext, int numCols, int numRows) {
 
 const char *Encipher(const char* railfence, int size) {
     char *ciphertext = malloc(size + 1);
-    for (int i = 0, j = 0; railfence[i]; i++) {
+    int j = 0;
+    for (int i = 0; railfence[i]; i++) {
         if (railfence[i] == ' ' || railfence[i] == '\n')
             continue;
         ciphertext[j++] = railfence[i];
     }
+    ciphertext[j] = '\0';
     
     return ciphertext;
 }

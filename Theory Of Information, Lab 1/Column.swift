@@ -117,12 +117,12 @@ class Column: NSViewController {
         keyword = keywordField.stringValue
         keyword = keyword.components(separatedBy: CharacterSet.letters.inverted)
             .joined()
+        keyword = keyword.uppercased()
         keywordField.stringValue = keyword
         if keyword == "" {
             dialogError(question: "Please, specify the keyword!", text: "Error: No keyword.")
             return
         }
-        
         
         plaintext = String(cString: SaveSpecialSymbols(plaintext))
         
