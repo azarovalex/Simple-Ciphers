@@ -119,6 +119,8 @@ class Column: NSViewController {
             .joined()
         keyword = keyword.uppercased()
         keywordField.stringValue = keyword
+        keyword = String(cString: SaveSpecialSymbols(keyword))
+        keywordField.stringValue = keyword
         if keyword == "" {
             dialogError(question: "Please, specify the keyword!", text: "Error: No keyword.")
             return
@@ -131,7 +133,7 @@ class Column: NSViewController {
         columns = String(cString: GetColumns())
         columnsField.stringValue = columns
         
-        ciphertext = String(cString: ReturnSpecialSymbols(ciphertext))
+        //ciphertext = String(cString: ReturnSpecialSymbols(ciphertext))
         ciphertextField.stringValue = ciphertext
     }
     
@@ -154,7 +156,4 @@ class Column: NSViewController {
         columns = String(cString: GetColumns())
         columnsField.stringValue = columns
     }
-    
-    
-    
 }

@@ -107,6 +107,8 @@ class Vigenere : NSViewController {
     @IBOutlet weak var keywordField: NSTextField!
     @IBOutlet weak var vigenereField: NSTextField!
     
+    let russianAlphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+    
     
     @IBAction func encodeBtnPressed(_ sender: Any) {
         plaintext = plaintextField.stringValue
@@ -116,6 +118,10 @@ class Vigenere : NSViewController {
         }
         
         keyword = keywordField.stringValue
+        let filteredKeyword = keyword.characters.filter {
+            return russianAlphabet.contains($0)
+        }
+        keyword = String(filteredKeyword)
         keywordField.stringValue = keyword
         if keyword == "" {
             dialogError(question: "Please, specify the keyword!", text: "Error: No keyword.")
@@ -135,6 +141,11 @@ class Vigenere : NSViewController {
             return
         }
         
+        let filteredKeyword = keyword.characters.filter {
+            return russianAlphabet.contains($0)
+        }
+        keyword = String(filteredKeyword)
+        
         keyword = keywordField.stringValue
         keywordField.stringValue = keyword
         if keyword == "" {
@@ -142,7 +153,7 @@ class Vigenere : NSViewController {
             return
         }
         
-        let vigenere = VigenereAlgorithm(alphabet: "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ", key: keyword)
+        let vigenere = VigenereAlgorithm(alphabet: russianAlphabet, key: keyword)
         plaintext = vigenere.decrypt(encryptedText: ciphertext)
         
         plaintextField.stringValue = plaintext

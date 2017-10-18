@@ -128,12 +128,12 @@ class ViewController: NSViewController {
         
         
         // Save special characters
-        if symbolsCheckbox.state == .on {
+//        if symbolsCheckbox.state == .on {
             plaintext = String(cString: SaveSpecialSymbols(plaintext))
-        } else {
-            plaintext = plaintext.components(separatedBy: CharacterSet.letters.inverted).joined()
-            plaintextField.stringValue = plaintext
-        }
+//        } else {
+//            plaintext = plaintext.components(separatedBy: CharacterSet.letters.inverted).joined()
+//            plaintextField.stringValue = plaintext
+//        }
         
         // Draw the rail fence
         railfence = String(cString: MakeRailFence(plaintext, Int32(plaintext.count), Int32(sizeofkey)))
@@ -142,7 +142,7 @@ class ViewController: NSViewController {
         // Load special characters and display ciphertext
         ciphertext = String(cString: Encipher(railfence, Int32(plaintext.count)))
         if symbolsCheckbox.state == .on {
-            ciphertext = String(cString: ReturnSpecialSymbols(ciphertext))
+            // ciphertext = String(cString: ReturnSpecialSymbols(ciphertext))
         }
         ciphertextField.stringValue = ciphertext
     }
