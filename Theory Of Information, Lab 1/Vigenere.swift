@@ -30,8 +30,7 @@ class Vigenere : NSViewController {
                 path = result!.path
                 return path
             }
-        } else {
-            // User clicked on "Cancel"
+        } else { // User clicked on "Cancel"
             return ""
         }
         
@@ -118,6 +117,7 @@ class Vigenere : NSViewController {
         }
         
         keyword = keywordField.stringValue
+        keyword = keyword.uppercased()
         let filteredKeyword = keyword.characters.filter {
             return russianAlphabet.contains($0)
         }
@@ -128,7 +128,7 @@ class Vigenere : NSViewController {
             return
         }
         
-        let vigenere = VigenereAlgorithm(alphabet: "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ", key: keyword)
+        let vigenere = VigenereAlgorithm(alphabet: russianAlphabet, key: keyword)
         ciphertext = vigenere.encrypt(plainText: plaintext)
         
         ciphertextField.stringValue = ciphertext

@@ -133,7 +133,6 @@ class Column: NSViewController {
         columns = String(cString: GetColumns())
         columnsField.stringValue = columns
         
-        //ciphertext = String(cString: ReturnSpecialSymbols(ciphertext))
         ciphertextField.stringValue = ciphertext
     }
     

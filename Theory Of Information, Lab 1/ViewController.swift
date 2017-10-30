@@ -39,7 +39,7 @@ func browseFile() -> String {
 
 class ViewController: NSViewController {
     
-    var fileURL  = URL(fileURLWithPath: "/")
+    var fileURL = URL(fileURLWithPath: "/")
     
     @IBOutlet weak var plaintextField: NSTextField!
     @IBOutlet weak var railfenceField: NSTextField!
@@ -154,7 +154,7 @@ class ViewController: NSViewController {
             return
         }
         
-        // Get sizeofey
+        // Get sizeofkey
         var keyStr = keyField.stringValue
         keyStr = keyStr.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         keyField.stringValue = keyStr
